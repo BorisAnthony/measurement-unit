@@ -11,3 +11,6 @@ coverage.xml
 
 #editors
 /.idea
+
+# macOS
+.DS_Store
