@@ -30,9 +30,9 @@ class VolumeTest extends TestCase
     {
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $volume               = new class (42.0, $arithmeticOperations) extends Volume {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromCubicMeterValue(float $value, ArithmeticOperations $arithmeticOperations): VolumeInterface
@@ -56,9 +56,9 @@ class VolumeTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $volume = new class (42.0) extends Volume {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromCubicMeterValue(float $value, ArithmeticOperations $arithmeticOperations): VolumeInterface
@@ -96,7 +96,7 @@ class VolumeTest extends TestCase
             ->willReturn(33.0);
 
         $volume = new class (42.0, $arithmeticOperations) extends Volume {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
                 return '';
             }
@@ -129,9 +129,9 @@ class VolumeTest extends TestCase
     public function testToString(): void
     {
         $volume = new class (42.0) extends Volume {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromCubicMeterValue(float $value, ArithmeticOperations $arithmeticOperations): VolumeInterface
@@ -145,6 +145,6 @@ class VolumeTest extends TestCase
             }
         };
 
-        static::assertSame('42 foo', $volume->__toString());
+        static::assertSame('42 unit', $volume->__toString());
     }
 }

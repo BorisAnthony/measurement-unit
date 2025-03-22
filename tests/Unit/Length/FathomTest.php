@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\Fathom;
 class FathomTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
-    public function testGetSymbol(): void
+    public function testgetDefaultSymbol(): void
     {
-        static::assertSame('ftm', Fathom::getSymbol());
+        static::assertSame('ftm', Fathom::getDefaultSymbol());
     }
 
     /**

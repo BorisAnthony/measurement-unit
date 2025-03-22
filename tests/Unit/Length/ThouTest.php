@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\Thou;
 class ThouTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
-    public function testGetSymbol(): void
+    public function testgetDefaultSymbol(): void
     {
-        static::assertSame('thou', Thou::getSymbol());
+        static::assertSame('thou', Thou::getDefaultSymbol());
     }
 
     /**

@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Volume\CubicInch;
 class CubicInchTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('in3', CubicInch::getSymbol());
+        static::assertSame('in³', CubicInch::getDefaultSymbol());
     }
 
     /**

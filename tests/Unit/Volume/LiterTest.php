@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Volume\Liter;
 class LiterTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('l', Liter::getSymbol());
+        static::assertSame('l', Liter::getDefaultSymbol());
     }
 
     /**

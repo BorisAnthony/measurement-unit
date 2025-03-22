@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\NauticalMile;
 class NauticalMileTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
-    public function testGetSymbol(): void
+    public function testgetDefaultSymbol(): void
     {
-        static::assertSame('nmi', NauticalMile::getSymbol());
+        static::assertSame('nmi', NauticalMile::getDefaultSymbol());
     }
 
     /**

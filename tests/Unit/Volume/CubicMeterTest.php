@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Volume\CubicMeter;
 class CubicMeterTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('m3', CubicMeter::getSymbol());
+        static::assertSame('m³', CubicMeter::getDefaultSymbol());
     }
 
     /**

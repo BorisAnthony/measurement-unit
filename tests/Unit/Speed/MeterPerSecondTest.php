@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Speed\MeterPerSecond;
 class MeterPerSecondTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('m/s', MeterPerSecond::getSymbol());
+        static::assertSame('m/s', MeterPerSecond::getDefaultSymbol());
     }
 
     /**

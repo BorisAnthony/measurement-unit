@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Temperature\Rankine;
 class RankineTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('°R', Rankine::getSymbol());
+        static::assertSame('°R', Rankine::getDefaultSymbol());
     }
 
     /**

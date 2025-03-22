@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\SurveyMile;
 class StatuteMileTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
-    public function testGetSymbol(): void
+    public function testgetDefaultSymbol(): void
     {
-        static::assertSame('mi', SurveyMile::getSymbol());
+        static::assertSame('mi', SurveyMile::getDefaultSymbol());
     }
 
     /**

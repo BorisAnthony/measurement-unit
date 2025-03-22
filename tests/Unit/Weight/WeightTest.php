@@ -24,9 +24,9 @@ class WeightTest extends TestCase
     {
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $weight               = new class (42.0, $arithmeticOperations) extends Weight {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromKilogramValue(float $value, ArithmeticOperations $arithmeticOperations): WeightInterface
@@ -50,9 +50,9 @@ class WeightTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $weight = new class (42.0) extends Weight {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromKilogramValue(float $value, ArithmeticOperations $arithmeticOperations): WeightInterface
@@ -84,7 +84,7 @@ class WeightTest extends TestCase
             ->willReturn(33.0);
 
         $speed = new class (42.0, $arithmeticOperations) extends Weight {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
                 return '';
             }
@@ -111,9 +111,9 @@ class WeightTest extends TestCase
     public function testToString(): void
     {
         $weight = new class (42.0) extends Weight {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromKilogramValue(float $value, ArithmeticOperations $arithmeticOperations): WeightInterface
@@ -127,6 +127,6 @@ class WeightTest extends TestCase
             }
         };
 
-        static::assertSame('42 foo', $weight->__toString());
+        static::assertSame('42 unit', $weight->__toString());
     }
 }

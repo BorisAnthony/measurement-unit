@@ -33,9 +33,9 @@ class LengthTest extends TestCase
     {
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $length               = new class (42.0, $arithmeticOperations) extends Length {
-            public static function getSymbol(): string
+            public function getSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromMeterValue(float $value, ArithmeticOperations $arithmeticOperations): LengthInterface
@@ -59,9 +59,9 @@ class LengthTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $length = new class (42.0) extends Length {
-            public static function getSymbol(): string
+            public function getSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromMeterValue(float $value, ArithmeticOperations $arithmeticOperations): LengthInterface
@@ -102,7 +102,7 @@ class LengthTest extends TestCase
             ->willReturn(33.0);
 
         $length = new class (42.0, $arithmeticOperations) extends Length {
-            public static function getSymbol(): string
+            public function getSymbol(): string
             {
                 return '';
             }
@@ -138,9 +138,9 @@ class LengthTest extends TestCase
     public function testToString(): void
     {
         $length = new class (42.0) extends Length {
-            public static function getSymbol(): string
+            public function getSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromMeterValue(float $value, ArithmeticOperations $arithmeticOperations): LengthInterface
@@ -154,6 +154,6 @@ class LengthTest extends TestCase
             }
         };
 
-        static::assertSame('42 foo', $length->__toString());
+        static::assertSame('42 unit', $length->__toString());
     }
 }

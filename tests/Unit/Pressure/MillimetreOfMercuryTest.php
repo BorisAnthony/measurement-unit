@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Pressure\MillimetreOfMercury;
 class MillimetreOfMercuryTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('mmHg', MillimetreOfMercury::getSymbol());
+        static::assertSame('mmHg', MillimetreOfMercury::getDefaultSymbol());
     }
 
     /**

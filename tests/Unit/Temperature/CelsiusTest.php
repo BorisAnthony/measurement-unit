@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Temperature\Celsius;
 class CelsiusTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('°C', Celsius::getSymbol());
+        static::assertSame('°C', Celsius::getDefaultSymbol());
     }
 
     /**

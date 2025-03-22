@@ -25,9 +25,9 @@ class SpeedTest extends TestCase
     {
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $speed                = new class (42.0, $arithmeticOperations) extends Speed {
-            public static function getSymbol(): string
+            public function getSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromMeterPerSecondValue(float $value, ArithmeticOperations $arithmeticOperations): SpeedInterface
@@ -51,9 +51,9 @@ class SpeedTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $speed = new class (42.0) extends Speed {
-            public static function getSymbol(): string
+            public function getSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromMeterPerSecondValue(float $value, ArithmeticOperations $arithmeticOperations): SpeedInterface
@@ -86,7 +86,7 @@ class SpeedTest extends TestCase
             ->willReturn(33.0);
 
         $speed = new class (42.0, $arithmeticOperations) extends Speed {
-            public static function getSymbol(): string
+            public function getSymbol(): string
             {
                 return '';
             }
@@ -114,9 +114,9 @@ class SpeedTest extends TestCase
     public function testToString(): void
     {
         $speed = new class (42.0) extends Speed {
-            public static function getSymbol(): string
+            public function getSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromMeterPerSecondValue(float $value, ArithmeticOperations $arithmeticOperations): SpeedInterface
@@ -130,6 +130,6 @@ class SpeedTest extends TestCase
             }
         };
 
-        static::assertSame('42 foo', $speed->__toString());
+        static::assertSame('42 unit', $speed->__toString());
     }
 }

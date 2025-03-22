@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Pressure\PoundPerSquareInch;
 class PoundPerSquareInchTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('psi', PoundPerSquareInch::getSymbol());
+        static::assertSame('psi', PoundPerSquareInch::getDefaultSymbol());
     }
 
     /**

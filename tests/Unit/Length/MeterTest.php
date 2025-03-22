@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\Meter;
 class MeterTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
-    public function testGetSymbol(): void
+    public function testgetDefaultSymbol(): void
     {
-        static::assertSame('m', Meter::getSymbol());
+        static::assertSame('m', Meter::getDefaultSymbol());
     }
 
     /**

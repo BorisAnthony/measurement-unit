@@ -30,9 +30,9 @@ class PressureTest extends TestCase
     {
         $arithmeticOperations   = $this->createMock(ArithmeticOperations::class);
         $pressure               = new class (42.0, $arithmeticOperations) extends Pressure {
-            public static function getSymbol(): string
+            public function getSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromPascalValue(float $value, ArithmeticOperations $arithmeticOperations): PressureInterface
@@ -56,9 +56,9 @@ class PressureTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $pressure = new class (42.0) extends Pressure {
-            public static function getSymbol(): string
+            public function getSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromPascalValue(float $value, ArithmeticOperations $arithmeticOperations): PressureInterface
@@ -96,7 +96,7 @@ class PressureTest extends TestCase
             ->willReturn(33.0);
 
         $pressure = new class (42.0, $arithmeticOperations) extends Pressure {
-            public static function getSymbol(): string
+            public function getSymbol(): string
             {
                 return '';
             }
@@ -129,9 +129,9 @@ class PressureTest extends TestCase
     public function testToString(): void
     {
         $pressure = new class (42.0) extends Pressure {
-            public static function getSymbol(): string
+            public function getSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromPascalValue(float $value, ArithmeticOperations $arithmeticOperations): PressureInterface
@@ -145,6 +145,6 @@ class PressureTest extends TestCase
             }
         };
 
-        static::assertSame('42 foo', $pressure->__toString());
+        static::assertSame('42 unit', $pressure->__toString());
     }
 }

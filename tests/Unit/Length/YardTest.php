@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\Yard;
 class YardTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
-    public function testGetSymbol(): void
+    public function testgetDefaultSymbol(): void
     {
-        static::assertSame('yd', Yard::getSymbol());
+        static::assertSame('yd', Yard::getDefaultSymbol());
     }
 
     /**

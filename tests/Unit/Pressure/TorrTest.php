@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Pressure\Torr;
 class TorrTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('Torr', Torr::getSymbol());
+        static::assertSame('Torr', Torr::getDefaultSymbol());
     }
 
     /**

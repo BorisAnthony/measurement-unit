@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Pressure\Pascal;
 class PascalTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('Pa', Pascal::getSymbol());
+        static::assertSame('Pa', Pascal::getDefaultSymbol());
     }
 
     /**

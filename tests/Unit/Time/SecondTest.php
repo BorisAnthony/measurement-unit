@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Time\Second;
 class SecondTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('s', Second::getSymbol());
+        static::assertSame('s', Second::getDefaultSymbol());
     }
 
     /**

@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Volume\CubicYard;
 class CubicYardTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('yd3', CubicYard::getSymbol());
+        static::assertSame('yd³', CubicYard::getDefaultSymbol());
     }
 
     /**

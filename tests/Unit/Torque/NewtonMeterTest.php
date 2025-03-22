@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Torque\NewtonMeter;
 class NewtonMeterTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('N⋅m', NewtonMeter::getSymbol());
+        static::assertSame('N⋅m', NewtonMeter::getDefaultSymbol());
     }
 
     /**

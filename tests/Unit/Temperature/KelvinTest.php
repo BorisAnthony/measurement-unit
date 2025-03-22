@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Temperature\Kelvin;
 class KelvinTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('K', Kelvin::getSymbol());
+        static::assertSame('K', Kelvin::getDefaultSymbol());
     }
 
     /**

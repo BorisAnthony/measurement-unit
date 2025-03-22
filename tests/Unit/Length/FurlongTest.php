@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\Furlong;
 class FurlongTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
-    public function testGetSymbol(): void
+    public function testgetDefaultSymbol(): void
     {
-        static::assertSame('for', Furlong::getSymbol());
+        static::assertSame('fur', Furlong::getDefaultSymbol());
     }
 
     /**

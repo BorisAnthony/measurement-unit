@@ -25,9 +25,9 @@ class TimeTest extends TestCase
     {
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $time                 = new class (42.0, $arithmeticOperations) extends Time {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromSecondValue(float $value, ArithmeticOperations $arithmeticOperations): TimeInterface
@@ -51,9 +51,9 @@ class TimeTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $time = new class (42.0) extends Time {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromSecondValue(float $value, ArithmeticOperations $arithmeticOperations): TimeInterface
@@ -86,7 +86,7 @@ class TimeTest extends TestCase
             ->willReturn(33.0);
 
         $time = new class (42.0, $arithmeticOperations) extends Time {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
                 return '';
             }
@@ -114,9 +114,9 @@ class TimeTest extends TestCase
     public function testToString(): void
     {
         $time = new class (42.0) extends Time {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromSecondValue(float $value, ArithmeticOperations $arithmeticOperations): TimeInterface
@@ -130,6 +130,6 @@ class TimeTest extends TestCase
             }
         };
 
-        static::assertSame('42 foo', $time->__toString());
+        static::assertSame('42 unit', $time->__toString());
     }
 }

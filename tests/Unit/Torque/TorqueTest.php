@@ -22,9 +22,9 @@ class TorqueTest extends TestCase
     {
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $torque               = new class (42.0, $arithmeticOperations) extends Torque {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromNewtonMeterValue(float $value, ArithmeticOperations $arithmeticOperations): TorqueInterface
@@ -48,9 +48,9 @@ class TorqueTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $torque = new class (42.0) extends Torque {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromNewtonMeterValue(float $value, ArithmeticOperations $arithmeticOperations): TorqueInterface
@@ -77,7 +77,7 @@ class TorqueTest extends TestCase
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
 
         $torque = new class (42.0, $arithmeticOperations) extends Torque {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
                 return '';
             }
@@ -102,9 +102,9 @@ class TorqueTest extends TestCase
     public function testToString(): void
     {
         $torque = new class (42.0) extends Torque {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromNewtonMeterValue(float $value, ArithmeticOperations $arithmeticOperations): TorqueInterface
@@ -118,6 +118,6 @@ class TorqueTest extends TestCase
             }
         };
 
-        static::assertSame('42 foo', $torque->__toString());
+        static::assertSame('42 unit', $torque->__toString());
     }
 }

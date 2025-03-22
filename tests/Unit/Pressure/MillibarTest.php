@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Pressure\Millibar;
 class MillibarTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('mbar', Millibar::getSymbol());
+        static::assertSame('mbar', Millibar::getDefaultSymbol());
     }
 
     /**

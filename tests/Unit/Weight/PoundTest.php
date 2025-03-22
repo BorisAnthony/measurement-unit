@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Weight\Pound;
 class PoundTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('lb', Pound::getSymbol());
+        static::assertSame('lb', Pound::getDefaultSymbol());
     }
 
     /**

@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Temperature\Fahrenheit;
 class FahrenheitTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('°F', Fahrenheit::getSymbol());
+        static::assertSame('°F', Fahrenheit::getDefaultSymbol());
     }
 
     /**

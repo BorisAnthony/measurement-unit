@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\Centimeter;
 class CentimeterTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
-    public function testGetSymbol(): void
+    public function testgetDefaultSymbol(): void
     {
-        static::assertSame('cm', Centimeter::getSymbol());
+        static::assertSame('cm', Centimeter::getDefaultSymbol());
     }
 
     /**

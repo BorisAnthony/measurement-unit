@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\Kilometer;
 class KilometerTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
-    public function testGetSymbol(): void
+    public function testgetDefaultSymbol(): void
     {
-        static::assertSame('km', Kilometer::getSymbol());
+        static::assertSame('km', Kilometer::getDefaultSymbol());
     }
 
     /**

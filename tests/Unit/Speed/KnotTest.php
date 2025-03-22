@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Speed\Knot;
 class KnotTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('kn', Knot::getSymbol());
+        static::assertSame('kn', Knot::getDefaultSymbol());
     }
 
     /**

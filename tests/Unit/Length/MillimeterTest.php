@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\Millimeter;
 class MillimeterTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
-    public function testGetSymbol(): void
+    public function testgetDefaultSymbol(): void
     {
-        static::assertSame('mm', Millimeter::getSymbol());
+        static::assertSame('mm', Millimeter::getDefaultSymbol());
     }
 
     /**

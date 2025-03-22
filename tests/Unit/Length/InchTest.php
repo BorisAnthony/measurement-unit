@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\Inch;
 class InchTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
-    public function testGetSymbol(): void
+    public function testgetDefaultSymbol(): void
     {
-        static::assertSame('″', Inch::getSymbol());
+        static::assertSame('in', Inch::getDefaultSymbol());
     }
 
     /**

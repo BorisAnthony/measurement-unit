@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Pressure\Bar;
 class BarTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('bar', Bar::getSymbol());
+        static::assertSame('bar', Bar::getDefaultSymbol());
     }
 
     /**

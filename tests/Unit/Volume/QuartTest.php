@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Volume\Quart;
 class QuartTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('qt', Quart::getSymbol());
+        static::assertSame('qt', Quart::getDefaultSymbol());
     }
 
     /**

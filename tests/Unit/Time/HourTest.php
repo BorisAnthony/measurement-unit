@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Time\Hour;
 class HourTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('h', Hour::getSymbol());
+        static::assertSame('h', Hour::getDefaultSymbol());
     }
 
     /**

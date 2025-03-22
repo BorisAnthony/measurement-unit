@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\Foot;
 class FootTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
-    public function testGetSymbol(): void
+    public function testgetDefaultSymbol(): void
     {
-        static::assertSame('ft', Foot::getSymbol());
+        static::assertSame('ft', Foot::getDefaultSymbol());
     }
 
     /**

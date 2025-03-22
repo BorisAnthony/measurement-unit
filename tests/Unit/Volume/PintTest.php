@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Volume\Pint;
 class PintTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('pt', Pint::getSymbol());
+        static::assertSame('pt', Pint::getDefaultSymbol());
     }
 
     /**

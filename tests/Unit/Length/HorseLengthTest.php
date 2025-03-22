@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\HorseLength;
 class HorseLengthTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
-    public function testGetSymbol(): void
+    public function testgetDefaultSymbol(): void
     {
-        static::assertSame('horse-length', HorseLength::getSymbol());
+        static::assertSame('hl', HorseLength::getDefaultSymbol());
     }
 
     /**

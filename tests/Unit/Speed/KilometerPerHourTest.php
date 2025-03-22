@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Speed\KilometerPerHour;
 class KilometerPerHourTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('km/h', KilometerPerHour::getSymbol());
+        static::assertSame('km/h', KilometerPerHour::getDefaultSymbol());
     }
 
     /**

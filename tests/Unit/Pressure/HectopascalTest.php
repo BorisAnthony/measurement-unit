@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Pressure\Hectopascal;
 class HectopascalTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('hPa', Hectopascal::getSymbol());
+        static::assertSame('hPa', Hectopascal::getDefaultSymbol());
     }
 
     /**

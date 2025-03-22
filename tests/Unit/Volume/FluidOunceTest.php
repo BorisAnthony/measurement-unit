@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Volume\FluidOunce;
 class FluidOunceTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('fl oz', FluidOunce::getSymbol());
+        static::assertSame('fl oz', FluidOunce::getDefaultSymbol());
     }
 
     /**

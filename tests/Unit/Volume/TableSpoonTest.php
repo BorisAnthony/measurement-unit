@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Volume\TableSpoon;
 class TableSpoonTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('tbsp', TableSpoon::getSymbol());
+        static::assertSame('tbsp', TableSpoon::getDefaultSymbol());
     }
 
     /**

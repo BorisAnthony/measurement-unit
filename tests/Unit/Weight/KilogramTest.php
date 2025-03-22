@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Weight\Kilogram;
 class KilogramTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('kg', Kilogram::getSymbol());
+        static::assertSame('kg', Kilogram::getDefaultSymbol());
     }
 
     /**

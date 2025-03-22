@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Volume\FluidDram;
 class FluidDramTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('dr', FluidDram::getSymbol());
+        static::assertSame('fl dr', FluidDram::getDefaultSymbol());
     }
 
     /**

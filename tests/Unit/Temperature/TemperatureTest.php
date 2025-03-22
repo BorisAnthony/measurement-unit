@@ -25,9 +25,9 @@ class TemperatureTest extends TestCase
     {
         $arithmeticOperations      = $this->createMock(ArithmeticOperations::class);
         $temperature               = new class (42.0, $arithmeticOperations) extends Temperature {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromKelvinValue(float $value, ArithmeticOperations $arithmeticOperations): TemperatureInterface
@@ -51,9 +51,9 @@ class TemperatureTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $temperature = new class (42.0) extends Temperature {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromKelvinValue(float $value, ArithmeticOperations $arithmeticOperations): TemperatureInterface
@@ -92,7 +92,7 @@ class TemperatureTest extends TestCase
             ->willReturn(33.0);
 
         $temperature = new class (42.0, $arithmeticOperations) extends Temperature {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
                 return '';
             }
@@ -120,9 +120,9 @@ class TemperatureTest extends TestCase
     public function testToString(): void
     {
         $temperature = new class (42.0) extends Temperature {
-            public static function getSymbol(): string
+            public static function getDefaultSymbol(): string
             {
-                return 'foo';
+                return 'unit';
             }
 
             public static function fromKelvinValue(float $value, ArithmeticOperations $arithmeticOperations): TemperatureInterface
@@ -136,6 +136,6 @@ class TemperatureTest extends TestCase
             }
         };
 
-        static::assertSame('42 foo', $temperature->__toString());
+        static::assertSame('42 unit', $temperature->__toString());
     }
 }

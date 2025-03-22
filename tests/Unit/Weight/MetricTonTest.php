@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Weight\MetricTon;
 class MetricTonTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('t', MetricTon::getSymbol());
+        static::assertSame('t', MetricTon::getDefaultSymbol());
     }
 
     /**

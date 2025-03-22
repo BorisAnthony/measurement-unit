@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Speed\MilesPerHour;
 class MilesPerHourTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('mph', MilesPerHour::getSymbol());
+        static::assertSame('mph', MilesPerHour::getDefaultSymbol());
     }
 
     /**

@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Time\Day;
 class DayTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('d', Day::getSymbol());
+        static::assertSame('d', Day::getDefaultSymbol());
     }
 
     /**

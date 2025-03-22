@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Pressure\Kilopascal;
 class KilopascalTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('kPa', Kilopascal::getSymbol());
+        static::assertSame('kPa', Kilopascal::getDefaultSymbol());
     }
 
     /**

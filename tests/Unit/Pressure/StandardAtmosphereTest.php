@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Pressure\StandardAtmosphere;
 class StandardAtmosphereTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('atm', StandardAtmosphere::getSymbol());
+        static::assertSame('atm', StandardAtmosphere::getDefaultSymbol());
     }
 
     /**

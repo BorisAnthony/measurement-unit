@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Time\Minute;
 class MinuteTest extends TestCase
 {
     /**
-     * @covers ::getSymbol
+     * @covers ::getDefaultSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('m', Minute::getSymbol());
+        static::assertSame('min', Minute::getDefaultSymbol());
     }
 
     /**
