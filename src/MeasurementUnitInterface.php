@@ -7,13 +7,13 @@ use Stringable;
 
 interface MeasurementUnitInterface extends Stringable
 {
-    public function getValue(): float; // Untested
+    public function getValue(): float;
 
-    public function getInstanceSymbol(): string; // Untested
+    public function getInstanceSymbol(): string;
 
-    public function setInstanceSymbol(string $symbol): string; // Untested
+    public function setInstanceSymbol(string $symbol): string;
 
     public static function getSymbol(): string;
 
-    public static function setSymbol(string $symbol): string; // Untested
+    public static function setSymbol(string $symbol): string;
 }
