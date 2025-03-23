@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Time\Second;
 class SecondTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('s', Second::getDefaultSymbol());
+        static::assertSame('s', Second::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class SecondTest extends TestCase
      */
     public function testFromSecondValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
 
         static::assertEquals(

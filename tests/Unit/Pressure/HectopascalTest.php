@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Pressure\Hectopascal;
 class HectopascalTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('hPa', Hectopascal::getDefaultSymbol());
+        static::assertSame('hPa', Hectopascal::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class HectopascalTest extends TestCase
      */
     public function testFromPascalValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('divide')
@@ -42,6 +43,7 @@ class HectopascalTest extends TestCase
      */
     public function testToPascalValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('multiply')

@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Time\Hour;
 class HourTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('h', Hour::getDefaultSymbol());
+        static::assertSame('h', Hour::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class HourTest extends TestCase
      */
     public function testFromSecondValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('divide')
@@ -42,6 +43,7 @@ class HourTest extends TestCase
      */
     public function testToSecondValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('multiply')

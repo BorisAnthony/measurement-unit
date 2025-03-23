@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\Furlong;
 class FurlongTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
-    public function testgetDefaultSymbol(): void
+    public function testgetSymbol(): void
     {
-        static::assertSame('fur', Furlong::getDefaultSymbol());
+        static::assertSame('fur', Furlong::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class FurlongTest extends TestCase
      */
     public function testFromMeterValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('divide')
@@ -42,6 +43,7 @@ class FurlongTest extends TestCase
      */
     public function testToMeterValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('multiply')

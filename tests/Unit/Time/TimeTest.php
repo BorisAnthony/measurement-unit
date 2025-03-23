@@ -23,9 +23,10 @@ class TimeTest extends TestCase
      */
     public function testConstructWithSuppliedArithmeticOperationsInstance(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $time                 = new class (42.0, $arithmeticOperations) extends Time {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -51,7 +52,7 @@ class TimeTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $time = new class (42.0) extends Time {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -80,13 +81,14 @@ class TimeTest extends TestCase
      */
     public function testToUnit(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::exactly(3))
             ->method('divide')
             ->willReturn(33.0);
 
         $time = new class (42.0, $arithmeticOperations) extends Time {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return '';
             }
@@ -114,7 +116,7 @@ class TimeTest extends TestCase
     public function testToString(): void
     {
         $time = new class (42.0) extends Time {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }

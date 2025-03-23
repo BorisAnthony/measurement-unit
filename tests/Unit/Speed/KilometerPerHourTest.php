@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Speed\KilometerPerHour;
 class KilometerPerHourTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('km/h', KilometerPerHour::getDefaultSymbol());
+        static::assertSame('km/h', KilometerPerHour::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class KilometerPerHourTest extends TestCase
      */
     public function testFromMeterPerSecondValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('divide')
@@ -42,6 +43,7 @@ class KilometerPerHourTest extends TestCase
      */
     public function testToMeterPerSecondValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('multiply')

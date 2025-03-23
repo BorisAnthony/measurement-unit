@@ -20,9 +20,10 @@ class TorqueTest extends TestCase
      */
     public function testConstructWithSuppliedArithmeticOperationsInstance(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $torque               = new class (42.0, $arithmeticOperations) extends Torque {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -48,7 +49,7 @@ class TorqueTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $torque = new class (42.0) extends Torque {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -74,10 +75,11 @@ class TorqueTest extends TestCase
      */
     public function testToUnit(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
 
         $torque = new class (42.0, $arithmeticOperations) extends Torque {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return '';
             }
@@ -102,7 +104,7 @@ class TorqueTest extends TestCase
     public function testToString(): void
     {
         $torque = new class (42.0) extends Torque {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }

@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Time\Day;
 class DayTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('d', Day::getDefaultSymbol());
+        static::assertSame('d', Day::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class DayTest extends TestCase
      */
     public function testFromSecondValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('divide')
@@ -42,6 +43,7 @@ class DayTest extends TestCase
      */
     public function testToSecondValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('multiply')

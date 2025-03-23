@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Volume\TableSpoon;
 class TableSpoonTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('tbsp', TableSpoon::getDefaultSymbol());
+        static::assertSame('tbsp', TableSpoon::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class TableSpoonTest extends TestCase
      */
     public function testFromCubicMeterValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('divide')
@@ -42,6 +43,7 @@ class TableSpoonTest extends TestCase
      */
     public function testToCubicMeterValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('multiply')

@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Pressure\Millibar;
 class MillibarTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('mbar', Millibar::getDefaultSymbol());
+        static::assertSame('mbar', Millibar::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class MillibarTest extends TestCase
      */
     public function testFromPascalValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('divide')
@@ -42,6 +43,7 @@ class MillibarTest extends TestCase
      */
     public function testToPascalValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('multiply')

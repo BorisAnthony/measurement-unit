@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Length\NauticalMile;
 class NauticalMileTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
-    public function testgetDefaultSymbol(): void
+    public function testgetSymbol(): void
     {
-        static::assertSame('nmi', NauticalMile::getDefaultSymbol());
+        static::assertSame('nmi', NauticalMile::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class NauticalMileTest extends TestCase
      */
     public function testFromMeterValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('divide')
@@ -42,6 +43,7 @@ class NauticalMileTest extends TestCase
      */
     public function testToMeterValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('multiply')

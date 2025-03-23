@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Temperature\Kelvin;
 class KelvinTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('K', Kelvin::getDefaultSymbol());
+        static::assertSame('K', Kelvin::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class KelvinTest extends TestCase
      */
     public function testFromKelvinValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
 
         static::assertEquals(

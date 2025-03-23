@@ -30,30 +30,30 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
         return $this->value;
     }
 
-    public function getSymbol(): string
+    public function getInstanceSymbol(): string
     {
         return $this->symbol;
     }
 
-    public static function getDefaultSymbol(): string
-    {
-        return static::$defaultSymbol;
-    }
-
-    public static function setDefaultSymbol(string $symbol): string
-    {
-        static::$defaultSymbol = $symbol;
-        return static::$defaultSymbol;
-    }
-
-    public function setSymbol(string $symbol): string
+    public function setInstanceSymbol(string $symbol): string
     {
         $this->symbol = $symbol;
         return $this->symbol;
     }
 
+    public static function getSymbol(): string
+    {
+        return static::$defaultSymbol;
+    }
+
+    public static function setSymbol(string $symbol): string
+    {
+        static::$defaultSymbol = $symbol;
+        return static::$defaultSymbol;
+    }
+
     public function __toString(): string
     {
-        return $this->value . " " . $this->getSymbol();
+        return $this->value . " " . $this->getInstanceSymbol();
     }
 }

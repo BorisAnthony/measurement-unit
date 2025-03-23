@@ -31,9 +31,11 @@ class LengthTest extends TestCase
      */
     public function testConstructWithSuppliedArithmeticOperationsInstance(): void
     {
-        $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
+        $arithmeticOperations = $this->getMockBuilder(ArithmeticOperations::class)
+            ->disableOriginalConstructor()
+            ->getMock();
         $length               = new class (42.0, $arithmeticOperations) extends Length {
-            public function getSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -59,7 +61,7 @@ class LengthTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $length = new class (42.0) extends Length {
-            public function getSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -96,13 +98,14 @@ class LengthTest extends TestCase
      */
     public function testToUnit(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::exactly(11))
             ->method('divide')
             ->willReturn(33.0);
 
         $length = new class (42.0, $arithmeticOperations) extends Length {
-            public function getSymbol(): string
+            public static function getSymbol(): string
             {
                 return '';
             }
@@ -138,7 +141,7 @@ class LengthTest extends TestCase
     public function testToString(): void
     {
         $length = new class (42.0) extends Length {
-            public function getSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }

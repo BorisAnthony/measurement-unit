@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Volume\Liter;
 class LiterTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('l', Liter::getDefaultSymbol());
+        static::assertSame('l', Liter::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class LiterTest extends TestCase
      */
     public function testFromCubicMeterValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('divide')
@@ -42,6 +43,7 @@ class LiterTest extends TestCase
      */
     public function testToCubicMeterValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('multiply')

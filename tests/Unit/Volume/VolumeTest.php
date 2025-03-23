@@ -28,9 +28,10 @@ class VolumeTest extends TestCase
      */
     public function testConstructWithSuppliedArithmeticOperationsInstance(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $volume               = new class (42.0, $arithmeticOperations) extends Volume {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -56,7 +57,7 @@ class VolumeTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $volume = new class (42.0) extends Volume {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -90,13 +91,14 @@ class VolumeTest extends TestCase
      */
     public function testToUnit(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::exactly(8))
             ->method('divide')
             ->willReturn(33.0);
 
         $volume = new class (42.0, $arithmeticOperations) extends Volume {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return '';
             }
@@ -129,7 +131,7 @@ class VolumeTest extends TestCase
     public function testToString(): void
     {
         $volume = new class (42.0) extends Volume {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }

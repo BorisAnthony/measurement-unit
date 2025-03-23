@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Volume\CubicYard;
 class CubicYardTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('yd³', CubicYard::getDefaultSymbol());
+        static::assertSame('yd³', CubicYard::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class CubicYardTest extends TestCase
      */
     public function testFromCubicMeterValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('divide')
@@ -42,6 +43,7 @@ class CubicYardTest extends TestCase
      */
     public function testToCubicMeterValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('multiply')

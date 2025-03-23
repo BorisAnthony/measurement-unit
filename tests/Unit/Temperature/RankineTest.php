@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Temperature\Rankine;
 class RankineTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('°R', Rankine::getDefaultSymbol());
+        static::assertSame('°R', Rankine::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class RankineTest extends TestCase
      */
     public function testFromKelvinValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('divide')
@@ -46,6 +47,7 @@ class RankineTest extends TestCase
      */
     public function testToKelvinValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('multiply')

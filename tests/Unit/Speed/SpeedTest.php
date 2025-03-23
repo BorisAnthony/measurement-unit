@@ -23,9 +23,10 @@ class SpeedTest extends TestCase
      */
     public function testConstructWithSuppliedArithmeticOperationsInstance(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $speed                = new class (42.0, $arithmeticOperations) extends Speed {
-            public function getSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -51,7 +52,7 @@ class SpeedTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $speed = new class (42.0) extends Speed {
-            public function getSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -80,13 +81,14 @@ class SpeedTest extends TestCase
      */
     public function testToUnit(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::exactly(3))
             ->method('divide')
             ->willReturn(33.0);
 
         $speed = new class (42.0, $arithmeticOperations) extends Speed {
-            public function getSymbol(): string
+            public static function getSymbol(): string
             {
                 return '';
             }
@@ -114,7 +116,7 @@ class SpeedTest extends TestCase
     public function testToString(): void
     {
         $speed = new class (42.0) extends Speed {
-            public function getSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }

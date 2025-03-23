@@ -22,9 +22,10 @@ class WeightTest extends TestCase
      */
     public function testConstructWithSuppliedArithmeticOperationsInstance(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $weight               = new class (42.0, $arithmeticOperations) extends Weight {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -50,7 +51,7 @@ class WeightTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $weight = new class (42.0) extends Weight {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -78,13 +79,14 @@ class WeightTest extends TestCase
      */
     public function testToUnit(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::exactly(2))
             ->method('divide')
             ->willReturn(33.0);
 
         $speed = new class (42.0, $arithmeticOperations) extends Weight {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return '';
             }
@@ -111,7 +113,7 @@ class WeightTest extends TestCase
     public function testToString(): void
     {
         $weight = new class (42.0) extends Weight {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }

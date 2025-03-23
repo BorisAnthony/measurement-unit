@@ -25,7 +25,7 @@ class TemperatureTest extends TestCase
     {
         $arithmeticOperations      = $this->createMock(ArithmeticOperations::class);
         $temperature               = new class (42.0, $arithmeticOperations) extends Temperature {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -51,7 +51,7 @@ class TemperatureTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $temperature = new class (42.0) extends Temperature {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -80,6 +80,7 @@ class TemperatureTest extends TestCase
      */
     public function testToUnit(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::exactly(2))
             ->method('subtract')
@@ -92,7 +93,7 @@ class TemperatureTest extends TestCase
             ->willReturn(33.0);
 
         $temperature = new class (42.0, $arithmeticOperations) extends Temperature {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return '';
             }
@@ -120,7 +121,7 @@ class TemperatureTest extends TestCase
     public function testToString(): void
     {
         $temperature = new class (42.0) extends Temperature {
-            public static function getDefaultSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }

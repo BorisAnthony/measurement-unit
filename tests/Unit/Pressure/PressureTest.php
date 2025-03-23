@@ -30,7 +30,7 @@ class PressureTest extends TestCase
     {
         $arithmeticOperations   = $this->createMock(ArithmeticOperations::class);
         $pressure               = new class (42.0, $arithmeticOperations) extends Pressure {
-            public function getSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -56,7 +56,7 @@ class PressureTest extends TestCase
     public function testConstructWithoutSuppliedArithmeticOperationsInstance(): void
     {
         $pressure = new class (42.0) extends Pressure {
-            public function getSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }
@@ -90,13 +90,14 @@ class PressureTest extends TestCase
      */
     public function testToUnit(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::exactly(8))
             ->method('divide')
             ->willReturn(33.0);
 
         $pressure = new class (42.0, $arithmeticOperations) extends Pressure {
-            public function getSymbol(): string
+            public static function getSymbol(): string
             {
                 return '';
             }
@@ -129,7 +130,7 @@ class PressureTest extends TestCase
     public function testToString(): void
     {
         $pressure = new class (42.0) extends Pressure {
-            public function getSymbol(): string
+            public static function getSymbol(): string
             {
                 return 'unit';
             }

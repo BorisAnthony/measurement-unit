@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Speed\Knot;
 class KnotTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('kn', Knot::getDefaultSymbol());
+        static::assertSame('kn', Knot::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class KnotTest extends TestCase
      */
     public function testFromMeterPerSecondValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('divide')
@@ -42,6 +43,7 @@ class KnotTest extends TestCase
      */
     public function testToMeterPerSecondValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
         $arithmeticOperations->expects(self::once())
             ->method('multiply')

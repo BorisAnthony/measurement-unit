@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Volume\CubicMeter;
 class CubicMeterTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('m³', CubicMeter::getDefaultSymbol());
+        static::assertSame('m³', CubicMeter::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class CubicMeterTest extends TestCase
      */
     public function testFromCubicMeterValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
 
         static::assertEquals(

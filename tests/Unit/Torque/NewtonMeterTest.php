@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Torque\NewtonMeter;
 class NewtonMeterTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('N⋅m', NewtonMeter::getDefaultSymbol());
+        static::assertSame('N⋅m', NewtonMeter::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class NewtonMeterTest extends TestCase
      */
     public function testFromNewtonMeter(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
 
         static::assertEquals(

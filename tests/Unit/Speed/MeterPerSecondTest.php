@@ -13,11 +13,11 @@ use PrinsFrank\MeasurementUnit\Speed\MeterPerSecond;
 class MeterPerSecondTest extends TestCase
 {
     /**
-     * @covers ::getDefaultSymbol
+     * @covers ::getSymbol
      */
     public function testGetSymbol(): void
     {
-        static::assertSame('m/s', MeterPerSecond::getDefaultSymbol());
+        static::assertSame('m/s', MeterPerSecond::getSymbol());
     }
 
     /**
@@ -25,6 +25,7 @@ class MeterPerSecondTest extends TestCase
      */
     public function testFromMeterPerSecondValue(): void
     {
+        /** @var ArithmeticOperations&\PHPUnit\Framework\MockObject\MockObject $arithmeticOperations */
         $arithmeticOperations = $this->createMock(ArithmeticOperations::class);
 
         static::assertEquals(
