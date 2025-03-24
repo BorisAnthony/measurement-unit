@@ -52,6 +52,21 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
         return static::$defaultSymbol;
     }
 
+    // Formatting Methods
+    public function toHtml(string $sprintf_Template = '<span class="value">%1$.1f</span> <span class="symbol">%2$s</span>'): string
+    {
+        $HTML = $this->toFormat(sprintf_Template: $sprintf_Template);
+        return $HTML;
+    }
+
+    public function toFormat(string $sprintf_Template = '%.1f %s'): string
+    {
+        $value  = $this->getValue();
+        $symbol = $this->getInstanceSymbol();
+        return vsprintf($sprintf_Template, [$value, $symbol]);
+    }
+
+    // Magic Methods
     public function __toString(): string
     {
         return $this->getValue() . " " . $this->getInstanceSymbol();

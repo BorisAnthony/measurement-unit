@@ -121,4 +121,59 @@ class MeasurementUnitTest extends TestCase
         // Reset to original value to avoid affecting other tests
         $className::setSymbol($originalSymbol);
     }
+
+    /**
+     * @covers ::toFormat
+     */
+    public function testToFormat(): void
+    {
+        $unit = new class (42.0) extends MeasurementUnit {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+        };
+
+        static::assertSame('42.0 unit', $unit->toFormat());
+        static::assertSame('Value: 42.0, Symbol: unit', $unit->toFormat('Value: %.1f, Symbol: %s'));
+        static::assertSame('42.00', $unit->toFormat('%.2f'));
+    }
+
+    /**
+     * @covers ::toHtml
+     */
+    public function testToHtml(): void
+    {
+        $unit = new class (42.0) extends MeasurementUnit {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+        };
+
+        static::assertSame('<span class="value">42.0</span> <span class="symbol">unit</span>', $unit->toHtml());
+
+        $customTemplate = '<div class="measurement"><strong>%1$.2f</strong><em>%2$s</em></div>';
+        static::assertSame(
+            '<div class="measurement"><strong>42.00</strong><em>unit</em></div>',
+            $unit->toHtml($customTemplate)
+        );
+    }
+
+    /**
+     * @covers ::toHtml
+     * @covers ::toFormat
+     */
+    public function testFormattingWithCustomSymbol(): void
+    {
+        $unit = new class (42.0, null, 'custom') extends MeasurementUnit {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+        };
+
+        static::assertSame('42.0 custom', $unit->toFormat());
+        static::assertSame('<span class="value">42.0</span> <span class="symbol">custom</span>', $unit->toHtml());
+    }
 }
