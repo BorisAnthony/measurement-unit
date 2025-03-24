@@ -11,7 +11,7 @@ interface MeasurementUnitInterface extends Stringable
 
     public function getInstanceSymbol(): string;
 
-    public function setInstanceSymbol(string $symbol): string;
+    public function setInstanceSymbol(string $symbol): self;
 
     public static function getSymbol(): string;
 

@@ -35,10 +35,10 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
         return $this->symbol;
     }
 
-    public function setInstanceSymbol(string $symbol): string
+    public function setInstanceSymbol(string $symbol): static
     {
         $this->symbol = $symbol;
-        return $this->symbol;
+        return $this;
     }
 
     public static function getSymbol(): string
@@ -54,6 +54,6 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
 
     public function __toString(): string
     {
-        return $this->value . " " . $this->getInstanceSymbol();
+        return $this->getValue() . " " . $this->getInstanceSymbol();
     }
 }

@@ -64,7 +64,7 @@ class MeasurementUnitTest extends TestCase
             }
         };
 
-        static::assertSame('customSymbol', $unit->setInstanceSymbol('customSymbol'));
+        static::assertSame($unit, $unit->setInstanceSymbol('customSymbol')); // setInstanceSymbol returns $this
         static::assertSame('customSymbol', $unit->getInstanceSymbol());
     }
 
