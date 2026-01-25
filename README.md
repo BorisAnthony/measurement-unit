@@ -1,3 +1,26 @@
+## Fork Notice                                                                                                                                                                        
+                                                                                                                                                                                    
+This is a fork of [prinsfrank/measurement-unit](https://github.com/prinsfrank/measurement-unit).
+                                                                                                                                                                                    
+**Changes:**                                                                                                                                                                          
+- Non-breaking Re-architecure #f794b0a
+  - Abstract MeasurementUnit::class and MeasurementUnitInterface::interface 
+  - MeasurementUnit extends Stringable
+- Added Angle units Degrees & Radians #d3f30fc
+- Added Percentage unit "Percent" #d3f30fc
+- Output formatting utility methods (`toHTML()`, `toFormat()` & `__toString()`) #e07f1bc
+- Utility class to set custom unit symbols. #78c9ce2
+
+
+## Migration Path
+
+If prinsfrank/measurement-unit merges the pending PR:
+1. We'll update dependencies to use upstream
+2. This package will enter maintenance mode
+3. Deprecation notices will guide migration
+
+---
+
 <picture>
     <source srcset="docs/images/banner_dark.png" media="(prefers-color-scheme: dark)">
     <img src="docs/images/banner_light.png" alt="Banner">
@@ -24,7 +47,9 @@ composer require prinsfrank/measurement-unit
 
 | Type        | Available unit                                                                                                    |
 |-------------|-------------------------------------------------------------------------------------------------------------------|
+| Agnle       | Degree, Radian                                                                                                    |
 | Length      | Centimeter, Fathom, Foot, Furlong, HorseLength, Inch, Kilometer, Meter, Millimeter, NauticalMile, StatuteMile, SurveyMile, Thou, Yard     |
+| Percentage  | Percent                                                                                                           |
 | Pressure    | Bar, Hectopascal, Kilopascal, Millibar, MillimetreOfMercury, Pascal, PoundPerSquareInch, StandardAtmosphere, Torr | 
 | Speed       | KilometerPerHour, Knot, MeterPerSecond, MilesPerHour                                                              |
 | Temperature | Celsius, Fahrenheit, Kelvin, Rankine                                                                              |
