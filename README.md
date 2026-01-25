@@ -1,5 +1,5 @@
-## Fork Notice                                                                                                                                                                        
-                                                                                                                                                                                    
+## Fork Notice                                       
+                                                   
 This is a fork of [prinsfrank/measurement-unit](https://github.com/prinsfrank/measurement-unit).
                                                                                                                                                                                     
 **Changes:**                                                                                                                                                                          
@@ -11,6 +11,9 @@ This is a fork of [prinsfrank/measurement-unit](https://github.com/prinsfrank/me
 - Output formatting utility methods (`toHTML()`, `toFormat()` & `__toString()`) #e07f1bc
 - Utility class to set custom unit symbols. #78c9ce2
 
+## Version Scheme
+
+This fork follows upstream versioning. Version 1.6.0 is based on prinsfrank/measurement-unit v1.5.0 with additional functionality and unit types.
 
 ## Migration Path
 
