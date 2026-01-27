@@ -4,19 +4,7 @@
     "license": "MIT",
     "description": "Extended Fork of prinsfrank/measurement-unit: \"A collection of measurement units for easy conversion\"",
     "keywords": ["fork", "measurement", "units"],
-    "homepage": "https://github.com/BorisAnthony/measurement-unit",  
-    "authors": [                                                                                                                                    
-      {                                                                                                                                             
-        "name": "Frans Prins",                                                                                                                      
-        "email": "prinsfrank@vuln.one",                                                                                                          
-        "role": "Original Author"                                                                                                                   
-      },                                                                                                                                            
-      {                                                                                                                                             
-        "name": "Boris Anthony",                                                                                                                    
-        "email": "boris@anthony.net",                                                                                                               
-        "role": "Fork Maintainer"                                                                                                                   
-      }                                                                                                                                             
-    ],
+    "homepage": "https://github.com/BorisAnthony/measurement-unit",
     "extra": {
       "upstream": "prinsfrank/measurement-unit",
       "fork-reason": "Additional functionality added. See README.md. PR pending."
