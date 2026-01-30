@@ -9,6 +9,8 @@ interface MeasurementUnitInterface extends Stringable
 {
     public function getValue(): float;
 
+    public function getValueRounded(): float;
+
     public function getInstanceSymbol(): string;
 
     public function setInstanceSymbol(string $symbol): self;

@@ -29,6 +29,25 @@ class MeasurementUnitTest extends TestCase
     }
 
     /**
+     * @covers ::getValue
+     */
+    public function testGetValueRounded(): void
+    {
+        $unit = new class (42.12345) extends MeasurementUnit {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+        };
+
+        static::assertSame(42.0, $unit->getValueRounded());
+        static::assertSame(42.1, $unit->getValueRounded(1));
+        static::assertSame(42.12, $unit->getValueRounded(2));
+        static::assertSame(42.123, $unit->getValueRounded(3));
+        static::assertSame(42.1235, $unit->getValueRounded(4));
+    }
+
+    /**
      * @covers ::getInstanceSymbol
      */
     public function testGetInstanceSymbol(): void
