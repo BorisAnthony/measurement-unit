@@ -18,4 +18,10 @@ interface MeasurementUnitInterface extends Stringable
     public static function getSymbol(): string;
 
     public static function setSymbol(string $symbol): string;
+
+    public function toHtml(string $sprintf_Template): string;
+
+    public function toFormat(string $sprintf_Template): string;
+
+    public function __toString(): string;
 }
