@@ -30,6 +30,11 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
         return $this->value;
     }
 
+    public function getValueRounded(int $precision = 0, \RoundingMode|int $mode = \RoundingMode::HalfAwayFromZero): float
+    {
+        return $this->value !== null ? round($this->value, $precision, $mode) : null;
+    }
+
     public function getInstanceSymbol(): string
     {
         return $this->symbol;
